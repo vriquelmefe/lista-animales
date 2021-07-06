@@ -6,18 +6,23 @@ const registro = (event) => {
   const nombreMascota = document.getElementById('nombreMascota').value;
   const enfermedad = document.getElementById('enfermedad').value;
   const tipo = document.getElementById('tipo').value;
-  const resultado = document.getElementById('resultado');
+  const mascota = new Mascota(propietario, direccion, telefono, tipo, nombreMascota, enfermedad);
+
+  function enviarResultado(mascota) {
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<li>${mascota.datosPropietario()}</li> <br> <li> ${mascota.tipo} , mientras que le nombre de la mascota es: ${mascota.nombreMascota} y la enfermedad es: ${mascota.enfermedad}</li> `
+  }
 
   if (tipo === 'perro') {
-    const perro = new Mascota(propietario, direccion, telefono, tipo, nombreMascota, enfermedad);
-    console.log(perro);
-    resultado.innerHTML = `<li>${perro.datosPropietario()}</li> <br> <li> ${perro.tipo} , mientras que le nombre de la mascota es: ${perro.nombreMascota} y la enfermedad es: ${perro.enfermedad}</li> `
+    const perro = mascota;
+    enviarResultado(perro);
+
   } else if (tipo === 'gato') {
-    const gato = new Mascota(propietario, direccion, telefono, tipo, nombreMascota, enfermedad);
-    resultado.innerHTML = `<li>${gato.datosPropietario()}</li> <br> <li> ${gato.tipo} , mientras que le nombre de la mascota es: ${gato.nombreMascota} y la enfermedad es: ${gato.enfermedad} </li>`
+    const gato = mascota;
+    enviarResultado(gato);
   } else {
-    const conejo = new Mascota(propietario, direccion, telefono, tipo, nombreMascota, enfermedad);
-    resultado.innerHTML = `<li>${conejo.datosPropietario()}</li> <br> <li> ${conejo.tipo} , mientras que le nombre de la mascota es: ${conejo.nombreMascota} y la enfermedad es: ${conejo.enfermedad}</li>`
+    const conejo = mascota;
+    enviarResultado(conejo);
   }
   document.getElementById('propietario').value = "";
   document.getElementById('telefono').value = "";
