@@ -19,6 +19,13 @@ const registro = (event) => {
     const conejo = new Mascota(propietario, direccion, telefono, tipo, nombreMascota, enfermedad);
     resultado.innerHTML = `<li>${conejo.datosPropietario()}</li> <br> <li> ${conejo.tipo} , mientras que le nombre de la mascota es: ${conejo.nombreMascota} y la enfermedad es: ${conejo.enfermedad}</li>`
   }
+  document.getElementById('propietario').value = "";
+  document.getElementById('telefono').value = "";
+  document.getElementById('direccion').value = "";
+  document.getElementById('nombreMascota').value = "";
+  document.getElementById('enfermedad').value = "";
+  document.getElementById('tipo').value = "";
+
 }
 botonEnviar.addEventListener('click', registro);
 class Propietario {
